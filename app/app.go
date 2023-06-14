@@ -5,11 +5,12 @@ import (
 	"log"
 	"net/http"
 
+	"go-todo-rest-api-example/app/handler"
+	"go-todo-rest-api-example/app/model"
+	"go-todo-rest-api-example/config"
+
 	"github.com/gorilla/mux"
 	"github.com/jinzhu/gorm"
-	"github.com/mingrammer/go-todo-rest-api-example/app/handler"
-	"github.com/mingrammer/go-todo-rest-api-example/app/model"
-	"github.com/mingrammer/go-todo-rest-api-example/config"
 )
 
 // App has router and db instances
@@ -27,6 +28,8 @@ func (a *App) Initialize(config *config.Config) {
 		config.DB.Port,
 		config.DB.Name,
 		config.DB.Charset)
+
+	fmt.Println(dbURI)
 
 	db, err := gorm.Open(config.DB.Dialect, dbURI)
 	if err != nil {

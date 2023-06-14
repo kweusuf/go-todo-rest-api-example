@@ -8,6 +8,10 @@ VERSION ?= $(shell git describe --tags --exact-match 2>/dev/null || git symbolic
 LDFLAGS += -X main.version=${VERSION}
 export CGO_ENABLED ?= 0
 
+.PHONY: clean
+clean: ## Build all binaries
+	rm -rf ${BUILD_DIR}
+
 .PHONY: build
 build: ## Build all binaries
 	@mkdir -p ${BUILD_DIR}

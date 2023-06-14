@@ -19,7 +19,7 @@ func GetConfig() *Config {
 		DB: &DBConfig{
 			Dialect:  "mysql",
 			Host:     "localhost",
-			Port:     6603,
+			Port:     3306,
 			Username: "root",
 			Password: "password",
 			Name:     "mysql",
