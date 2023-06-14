@@ -85,3 +85,9 @@ go build
 - [x] Organize the code with packages
 - [ ] Make docs with GoDoc
 - [ ] Building a deployment process 
+
+## Debugging
+1. `make debug-build`
+2. ./build/todobackend-go-kit.exe
+3. In a new terminal, run ps to get WINPID of process
+4. Run `dlv attach <pid> --listen=:2345 --headless --api-version=2 --log`
